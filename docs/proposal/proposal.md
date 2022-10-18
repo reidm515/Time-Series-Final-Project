@@ -101,7 +101,7 @@ Student 2: Mark Reid
 - Building the predictive model - MatPlotLib, Pandas, NumPy and scikit-learn.
 - Testing the accuracy of our predictive model.
 
-![ alt text for screen readers](C:\Users\boyle\OneDrive\Desktop\Captures\cap22.png "Text to show on mouseover")
+![title](cap22.png)
 
 Over the course of the project, we will be using [Trello](https://trello.com) to report, assign and review our work and progress.
 
