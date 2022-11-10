@@ -1,110 +1,149 @@
-﻿School of Computing — Year 4 Project Proposal Form
+# School of Computing — Year 4 Project Proposal Form
 
+```
 Edit (then commit and push) this document to complete your proposal form..
+```
 
+```
 Do not rename this file.
+```
 
-SECTION A
+## SECTION A
 
-|                                   |                                                 |
-| :-------------------------------- | :---------------------------------------------- |
-| Project Title:                    | Machine Learning - Building a Predictive Model. |
-| Student 1 Name:                   | Kevin Boyle                                     |
-| Student 1 ID:                     | 19731615                                        |
-| Student 2 Name:                   | Mark Reid                                       |
-| Student 2 ID:                     | 19414892                                        |
-| <p>Project </p><p>Supervisor:</p> | Mark Roantree                                   |
+#### Project Title: An Intelligent Allergy Assistant
 
-Ensure that the Supervisor formally agrees to supervise your project; this is only recognised once the Supervisor assigns herself/himself via the project Dashboard.
+#### Student 1 Name: Kevin Boyle
 
+#### Student 1 ID: 19731615
+
+#### Student 2 Name: Mark Reid
+
+#### Student 2 ID: 19414892
+
+#### Project
+
+#### Supervisor:
+
+#### Mark Roantree
+
+```
+Ensure that the Supervisor formally agrees to supervise your project; this is only recognised once the Supervisor assigns
+herself/himself via the project Dashboard.
+```
+
+```
 Project proposals without an assigned Supervisor will not be accepted for presentation to the ApprovalPanel.
+```
 
-SECTION B
+## SECTION B
 
-Guidance: This document is expected to be approximately 3 pages in length, but it can exceed this page limit. It is also permissible to carry forward content from this proposal to your later documents (e.g. functional specification) as appropriate.
+### Introduction
 
-Your proposal must include at least the following sections.
+The goal of our fourth year project is to develop an application with the aim to aid individuals with allergens.
 
-Introduction
+We aim to develop an application which will give users the opportunity to scan and automatically detect allergens inside
+products using it’s barcode. Additionally, we believe it would be beneficial to include a feature where users can record their
+own allergies and flag instances where these have been detected in a product, or give warnings if a scanned product contains
+their specific allergens.
 
-The goal of our fourth-year project is to develop an application that will allow users to input a keyword and using that keyword create a related dataset, scraped from a website such as Kaggle. The user can then input any desired values which are columns in the scraped dataset, and our algorithm will give an accurate prediction of the columns left empty.
+### Outline
 
-For example, a user wants an accurate prediction of the price of their home. The user inputs their keyword, something like “house_price Dublin”. After that, the user can then input any of the characteristics of their own home that are columns in the scraped dataset, and our machine-learning algorithm will predict the empty inputs and give an accurate property price prediction.
+For this project, we plan on creating a mobile application in Python, using Pycharm and Vscode to facilitate our python code.
+The majority of our applications frontend will be developed using Flutter, a Python Framework which is used to develop and
+design mobile applications with a natural user interface. We chose to use Flutter as it is very versatile and easy to use, it
+supports six platform targets: Android, iOS, Windows, macOS, Linux, and web applications.
 
-Outline
+We plan on using AWS Lambda to assist in creating the backend of our mobile application. Lambda is a “serverless,
+event-driven compute service that lets you run code for virtually any type of application or backend service without
+provisioning or managing servers”. It provides an HTTP API for custom runtimes tor receive invoked events and sends
+response data back within it’s own environment. Using these technologies, we aim to implement an application that allows the
+user to scan a food item with their camera to check for any allergic ingredients.
 
-We plan on using python libraries such as BeautifulSoup4 and Selenium to successfully scrape datasets from one or more sources. The scraped dataset is then fed to our python code in which we will analyze the data in depth and identify the key markers/variables.
+Additionally, to integrate our Frontend and Backend together, we will be using Dart which comes with Flutter when it is
+installed.
 
-We will use the following generic python libraries to develop our predictive model. They include; NumPy, Pandas, Scikit-Learn and Matplotlib. We plan on getting the predictive model working using the functions in those libraries and once it is working as expected we will then optimise those functions, making them more efficient for our specific purpose.
+### Background
 
-We will then create a clean and straightforward web application using the Python Framework Django, where a user interfaces in which previously known values are inputted and predicted values are fed back to the interface.
+Initially, the idea came after we both searched through numerous lecturer’s project ideas. We agreed that doing something
+that was related to the two of us would make our project more intriguing. As we both suffer from food allergies, we felt that
+this idea not only could benefit the pair of us, but the large numbers of people across Ireland that who suffer with food
+allergens, some of them being life-threatening.
 
-Background
+We both believe that in Ireland, it can be difficult for consumers to read the ingredients on every product. This is mostly due to
+the location on the product or the size of the font, hence it is a tedious shopping experience. We feel that our application could
+help with this and make grocery shopping a safer and more enjoyable experience.
 
-Initially, the idea came from our CA4010 Data Warehousing and Mining project, where we are currently building a predictive model which can accurately predict the value of a house in Ireland.
+### Achievements
 
-For our fourth-year project, we decided we could expand on this idea and create something that isn’t solely focused on house prices but could work for many things and also incorporated machine learning. We found that this project intrigued both of us and could be potentially very useful for others.
+Ideally the function of our application would be for any user to scan a product in their local supermarket and in an instant be
+warned if the product contains allergic ingredients. We have found a similar feature inside the MyFitnessPal application, which
+is available on the Google Playstore.
 
-We plan on using the information and skills gathered from CA4010 in our project which we believe will successfully help us in scraping, storing and analysing data for use.
+MyFitnessPal offers users the ability to scan a products barcode and be shown the amount of calories it contains and that
+specific products macro nutrients. We believe that we could implement something similar to this, but instead of returning a list
+of macro nutrients we would return the ingredients that are flagged as allergens and warn the user if others have experienced
+negative reactions after consuming that product.
 
-Achievements
+### Justification
 
-Ideally the function of this project would be for any user to input their desired category with a keyword and accurately predict a variable in that dataset. We want the project to have a user-orientated front page and at the same time have the bulk of our work behind the scenes where we scrape data and work with it.
+Webothbelievethatthisprojectcouldbeusefulinmanydifferentways.It’sestimatedthat26%ofthepopulationsufferwith
+allergyconditionsnationwideandover10%worldwide.Asbothofusexperienceallergiesourselves,weknowfirsthandthe
+feelingofuncertaintywhenpurchasingproductsinstore.Wealsoknowthefeelingofconfusionwhenreadingthebackof
+products,notknowingwheretheallergicingredientsarelisted.Webelieveitwouldbeabenefittoindividualswithallergiesif
+theyhadtheabilitytoscanandautomaticallydetectallergensfromingredientslistings,recordtheirindividualallergensand
+flaginstanceswherethesehavebeendetectedinaproductandincludeafeaturewhereuserscanreportallergiceventsand
+this is analysed for associations with various food products.
 
-Justification
+Inouropinion,providingthisservicewouldmakefoodshoppingalessconfusingandtediousexperienceforindividualswith
+allergies, and help reduce the risks of consuming allergic ingredients especially as some allergies can be life-threating.
 
-We both believe that this project could be useful in many different ways. Firstly in Ireland today, we are all aware of the crisis regarding housing. Both of us felt that we could develop a service that gave people the opportunity to get an accurate prediction of the price of their home years into the future. We believe that it would be particularly useful today for not only the majority of the people in Ireland thinking of selling their property but also for people looking to purchase their own property.
+### Programming language(s)
 
-However, after discussing our proposed idea with our supervisor Mark Roantree, we came to the conclusion that our idea was too specific. We both felt that we could expand the idea making it useful in a number of different ways. For example, a user could predict the depreciation of the price of their car in a couple of years, or predict their risk of heart disease given the right variables.
-
-We hope for this project to be versatile and cover as many areas as the user intends.
-
-Programming language(s)
-
-- Python3
+- Python
+- Flutter
+- AWS Lambda
 - Javascript
-- Jupyter notebook
+- Dart
 
-Programming tools / Tech stack
+### Programming tools / Tech stack
 
-- We plan on using PyCharm and VSCode to facilitate the bulk of our code during this project.
-- Both of these offer many useful features and allow for inbuilt testing of code as well as creating a local server.
-- We will use MatPlotLib, Pandas, NumPy and scikit-learn to build our predictive model.
+- We plan on using PyCharm and VSCode to facilitate the bulk of our code during this
+  project.
+- We will design and build the front-end of our application using Flutter.
+- We will use AWS Lambda to create our serverless mobile application, putting our
+  functions to separate its development lifecycle from that of front-end clients, which will
+  make developing our mobile application less complex to develop and maintain.
+- Dart to integrate the front-end of our application and the backend.
 - We will be using DCU Computing Gitlab for our project repository.
+- Over the course of the project, we will be using Trello to report, assign and review our work and progress.
 
-Hardware
+### Hardware
 
-No non-standard hardware planned so far.
+- Andorid or IOS mobile phone with a back facing camera.
 
-Learning Challenges
+### Learning Challenges
 
-- Building and testing the accuracy of our Predictive Model.
-- Web scraping
-- New Languages and libraries within Python, such as Jupyter notebook and Pandas within Python.
-- Returning the output from the source-code inside of our web application.
+```
+● Building and testing the accuracy of our Predictive Model.
+● Web scraping
+● New Languages and libraries within Python, such as Jupyter notebook and Pandas within Python.
+● Returning the output from the source-code inside of our web application.
+```
 
-The breakdown of work
+### The breakdown of work
 
-Clearly identifies who will undertake which parts of the project.
+#### Student 1: Kevin Boyle
 
-It must be clear from the explanation of this breakdown of work both that each student is responsible for separate, clearly defined tasks, and that those responsibilities substantially cover all of the work required for the project.
+```
+● Setup of UpciteMDB API.
+● Design of GUI & Development of the Front-End of the application using Flutter.
+● Testing - Unit Testing, Integration Testing and User Testing.
+```
 
-Student 1: Kevin Boyle
+#### Student 2: Mark Reid
 
-- Testing - Unit and Integration Testing Pipeline.
-- Web Scraping - Selenium + BS4
-- Manipulation of Datasets - Organise and clean Datasets into a single one using Pandas
-
-Student 2: Mark Reid
-
-- Web-Application GUI - Javascript/CSS.
-- Building the predictive model - MatPlotLib, Pandas, NumPy and scikit-learn.
-- Testing the accuracy of our predictive model.
-
-![title](cap22.png)
-
-Over the course of the project, we will be using [Trello](https://trello.com) to report, assign and review our work and progress.
-
-We will also be assigning each other our Git merge requests.
-
-![](Aspose.Words.0efea4c9-53de-4e1e-b212-4f591506b446.001.png)
+```
+● Backend Work - AWS LAMBDA
+● Database Fetching - Dart
+● Testing - Functional & Regression Testing.
+```
