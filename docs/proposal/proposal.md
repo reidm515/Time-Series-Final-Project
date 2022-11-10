@@ -20,11 +20,7 @@ Do not rename this file.
 
 #### Student 2 ID: 19414892
 
-#### Project
-
-#### Supervisor:
-
-#### Mark Roantree
+#### Project Supervisor: Mark Roantree
 
 ```
 Ensure that the Supervisor formally agrees to supervise your project; this is only recognised once the Supervisor assigns
@@ -86,15 +82,15 @@ negative reactions after consuming that product.
 
 ### Justification
 
-Webothbelievethatthisprojectcouldbeusefulinmanydifferentways.It’sestimatedthat26%ofthepopulationsufferwith
-allergyconditionsnationwideandover10%worldwide.Asbothofusexperienceallergiesourselves,weknowfirsthandthe
-feelingofuncertaintywhenpurchasingproductsinstore.Wealsoknowthefeelingofconfusionwhenreadingthebackof
-products,notknowingwheretheallergicingredientsarelisted.Webelieveitwouldbeabenefittoindividualswithallergiesif
-theyhadtheabilitytoscanandautomaticallydetectallergensfromingredientslistings,recordtheirindividualallergensand
-flaginstanceswherethesehavebeendetectedinaproductandincludeafeaturewhereuserscanreportallergiceventsand
+We both believe that this project could be useful in many different ways. It’s estimated that 26% of the population suffer with
+allergy conditions nationwide and over 10% worldwide. As both of us experience allergies ourselves, we know first hand the
+feeling of uncertainty when purchasing products in store. We also know the feeling of confusion when reading the back of
+products, not knowing where the allergic ingredients are listed. We believe it would be a benefit to individuals with allergies if
+they had the ability to scan and automatically detect allergens from ingredients listings, record their individual allergens and
+flag instances where these have been detected in a product and include a feature where users can report allergic events and
 this is analysed for associations with various food products.
 
-Inouropinion,providingthisservicewouldmakefoodshoppingalessconfusingandtediousexperienceforindividualswith
+In our opinion, providing this service would make food shopping a less confusing and tedious experience for individuals with
 allergies, and help reduce the risks of consuming allergic ingredients especially as some allergies can be life-threating.
 
 ### Programming language(s)
