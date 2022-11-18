@@ -10,7 +10,9 @@ Do not rename this file.
 
 ## SECTION A
 
-#### Project Title: An Intelligent Allergy Assistant
+#### Project Title: Analysing the accuracy of several different gap-filling techniques on real-world
+
+#### climate datasets..
 
 #### Student 1 Name: Kevin Boyle
 
@@ -20,10 +22,14 @@ Do not rename this file.
 
 #### Student 2 ID: 19414892
 
-#### Project Supervisor: Mark Roantree
+#### Project
+
+#### Supervisor:
+
+#### Mark Roantree
 
 ```
-Ensure that the Supervisor formally agrees to supervise your project; this is only recognised once the Supervisor assigns
+Ensure that the Supervisor formally agrees to supervise your project; this is only recognized once the Supervisor assigns
 herself/himself via the project Dashboard.
 ```
 
@@ -35,111 +41,95 @@ Project proposals without an assigned Supervisor will not be accepted for presen
 
 ### Introduction
 
-The goal of our fourth year project is to develop an application with the aim to aid individuals with allergens.
-
-We aim to develop an application which will give users the opportunity to scan and automatically detect allergens inside
-products using it’s barcode. Additionally, we believe it would be beneficial to include a feature where users can record their
-own allergies and flag instances where these have been detected in a product, or give warnings if a scanned product contains
-their specific allergens.
+The goal of our fourth-year project is to develop a system in which climate scientists are able to provide time-series datasets
+with gaps throughout and be returned gap-filled data using multiple interpolation techniques. We will provide the user with a
+detailed explanation as to why and when each interpolation technique is most appropriate and effective. We hope that our
+system will benefit those in the world of climate/weather research, as they work with real-world data which is known to be
+plagued with gaps throughout. The user will be able to choose a dataset, each of which contains a different level of
+sensitivity (size of the gaps present).
 
 ### Outline
 
-For this project, we plan on creating a mobile application in Python, using Pycharm and Vscode to facilitate our python code.
-The majority of our applications frontend will be developed using Flutter, a Python Framework which is used to develop and
-design mobile applications with a natural user interface. We chose to use Flutter as it is very versatile and easy to use, it
-supports six platform targets: Android, iOS, Windows, macOS, Linux, and web applications.
-
-We plan on using AWS Lambda to assist in creating the backend of our mobile application. Lambda is a “serverless,
-event-driven compute service that lets you run code for virtually any type of application or backend service without
-provisioning or managing servers”. It provides an HTTP API for custom runtimes tor receive invoked events and sends
-response data back within it’s own environment. Using these technologies, we aim to implement an application that allows the
-user to scan a food item with their camera to check for any allergic ingredients.
-
-Additionally, to integrate our Frontend and Backend together, we will be using Dart which comes with Flutter when it is
-installed.
+For this project, the overwhelming majority of the work will be based on the processing of data. We will introduce the gaps
+from several datasets which, as mentioned before, will solely focus on climate/weather using scientific methods of gap
+insertion. The gaps will not be inserted at random. We must implement the different techniques of gap-filling which we plan on
+using Python to develop. The ideal user will be a climate scientist who regularly works with real-world datasets as these
+oftentimes contain many gaps. There will be no fancy GUI, rather just the examination of the resulting data.
 
 ### Background
 
-Initially, the idea came after we both searched through numerous lecturer’s project ideas. We agreed that doing something
-that was related to the two of us would make our project more intriguing. As we both suffer from food allergies, we felt that
-this idea not only could benefit the pair of us, but the large numbers of people across Ireland that who suffer with food
-allergens, some of them being life-threatening.
+The idea came to us through our studies of CA4010 Data Warehousing & Data Mining. We both developed an interest in
+machine learning and felt that it would be intriguing to base our fourth-year project on a related topic. We have decided to
+focus our project on comparing several different interpolation methods for filling gaps in large datasets. These datasets will
+contain real-world time-series data focusing on weather/climate. Real-world data is oftentimes plagued with gaps, due to
+sensors or the connection between sensors failing.
 
-We both believe that in Ireland, it can be difficult for consumers to read the ingredients on every product. This is mostly due to
-the location on the product or the size of the font, hence it is a tedious shopping experience. We feel that our application could
-help with this and make grocery shopping a safer and more enjoyable experience.
+We believe that this is applicable as the majority of statistical methods and environmental models, require serially complete
+data, so gap filling is a routine procedure in the preprocessing of datasets. Our target user is Climate scientists as they
+consistently work with real-world data.
 
 ### Achievements
 
-Ideally the function of our application would be for any user to scan a product in their local supermarket and in an instant be
-warned if the product contains allergic ingredients. We have found a similar feature inside the MyFitnessPal application, which
-is available on the Google Playstore.
+The presence of missing data is a challenging issue in processing real-world datasets. The aim of our fourth-year project is to
+compare the effects several different techniques of gap-filling have on a large number of weather/climate datasets.
 
-MyFitnessPal offers users the ability to scan a products barcode and be shown the amount of calories it contains and that
-specific products macro nutrients. We believe that we could implement something similar to this, but instead of returning a list
-of macro nutrients we would return the ingredients that are flagged as allergens and warn the user if others have experienced
-negative reactions after consuming that product.
+Ideally, our system will be able to allow a user to input a dataset that contains real-world, time-series data taken from
+sensors at several weather stations. Datasets containing climatic variables are frequently made up of time-series data
+covering different time spans and are plagued with data gaps.
+
+We then will offer the user several different gap-filling techniques which they can choose from to be applied to the dataset. We
+aim to focus on several _interpolation methods_. The user will also be presented with a detailed explanation of the functionality
+of each gap-filling technique and where each is most applicable. After the user selects a method, our system will then apply
+the gap-filling function on the dataset and return it with the gaps filled.
 
 ### Justification
 
-We both believe that this project could be useful in many different ways. It’s estimated that 26% of the population suffer with
-allergy conditions nationwide and over 10% worldwide. As both of us experience allergies ourselves, we know first hand the
-feeling of uncertainty when purchasing products in store. We also know the feeling of confusion when reading the back of
-products, not knowing where the allergic ingredients are listed. We believe it would be a benefit to individuals with allergies if
-they had the ability to scan and automatically detect allergens from ingredients listings, record their individual allergens and
-flag instances where these have been detected in a product and include a feature where users can report allergic events and
-this is analysed for associations with various food products.
-
-In our opinion, providing this service would make food shopping a less confusing and tedious experience for individuals with
-allergies, and help reduce the risks of consuming allergic ingredients especially as some allergies can be life-threating.
+With the current circumstances regarding climate uncertainty, we found that now could be a great opportunity to focus on the topic of climate. Furthermore, machine learning is a rapidly growing field on that we would like to focus our project on. Given our previous experience in Data Warehousing and Data Mining, we would like to touch on what we learned and expand past this, focusing heavily on the machine-learning side of data science.
 
 ### Programming language(s)
 
 - Python
-- Flutter
-- AWS Lambda
-- Javascript
-- Dart
+- SQL
 
 ### Programming tools / Tech stack
 
-- We plan on using PyCharm and VSCode to facilitate the bulk of our code during this
-  project.
-- We will design and build the front-end of our application using Flutter.
-- We will use AWS Lambda to create our serverless mobile application, putting our
-  functions to separate its development lifecycle from that of front-end clients, which will
-  make developing our mobile application less complex to develop and maintain.
-- Dart to integrate the front-end of our application and the backend.
-- We will be using DCU Computing Gitlab for our project repository.
-- Over the course of the project, we will be using Trello to report, assign and review our work and progress.
+```
+● Interpolation tools available inside SciPy.
+● Python to develop our own interpolation methods which will be compared with SciPy’s.
+● SQL to facilitate our database (Containing the different datasets).
+● Jupyter Notebook (compile aspects of our project in one place).
+```
 
 ### Hardware
 
-- Andorid or IOS mobile phone with a back facing camera.
+```
+● No hardware is required other than a machine with access to the internet.
+```
 
 ### Learning Challenges
 
 ```
-● Building and testing the accuracy of our Predictive Model.
-● Web scraping
-● New Languages and libraries within Python, such as Jupyter notebook and Pandas within Python.
-● Returning the output from the source-code inside of our web application.
+● Machine Learning
+● Research of methods of Interpolation
+● Preprocessing of data - insertion of gaps inside each dataset.
+● Identifying what techniques of gap filling are most effective in each scenario/database.
+● Implementing each method of gap-filling.
 ```
 
-### The breakdown of work
+### The breakdown of the work
 
 #### Student 1: Kevin Boyle
 
 ```
-● Setup of UpciteMDB API.
-● Design of GUI & Development of the Front-End of the application using Flutter.
-● Testing - Unit Testing, Integration Testing and User Testing.
+● Research and Implement the insertion of gaps in each dataset/preprocessing our Datasets.
+● Implementation of 50% of our gap-filling techniques.
+● Design of Graphical user Interface.
 ```
 
 #### Student 2: Mark Reid
 
 ```
-● Backend Work - AWS LAMBDA
-● Database Fetching - Dart
-● Testing - Functional & Regression Testing.
+● Analysing the efficiency of each gap-filling method and where each is most appropriate.
+● Implementation of 50% of our gap-filling techniques.
+● Developing the Graphical User Interface & Content.
 ```
