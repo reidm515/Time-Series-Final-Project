@@ -10,9 +10,7 @@ Do not rename this file.
 
 ## SECTION A
 
-#### Project Title: Analysing the accuracy of several different gap-filling techniques on real-world
-
-#### climate datasets..
+#### Project Title: Analysing the accuracy of several different gap-filling techniques on real-world climate datasets..
 
 #### Student 1 Name: Kevin Boyle
 
@@ -22,11 +20,7 @@ Do not rename this file.
 
 #### Student 2 ID: 19414892
 
-#### Project
-
-#### Supervisor:
-
-#### Mark Roantree
+#### Project Supervisor: Mark Roantree
 
 ```
 Ensure that the Supervisor formally agrees to supervise your project; this is only recognized once the Supervisor assigns
