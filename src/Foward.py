@@ -1,3 +1,11 @@
+# Technique: 
+# Forward Interpolation
+
+# Method: 
+# Estimates missing values in a dataset by using the values of
+# the surrounding data points. In this method, the missing values are estimated
+# based on the values of the data points that come before them.
+
 import matplotlib.pyplot as plt
 import pandas as pd
 import numpy as np
