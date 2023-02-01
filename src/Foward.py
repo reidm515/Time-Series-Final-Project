@@ -1,6 +1,6 @@
-
 import matplotlib.pyplot as plt
 import pandas as pd
+import numpy as np
 
 # Define the columns of the dataframe
 columns = ['Datetime', 'HC Air temperature [°C] mean', 'HC Air temperature [°C] max', 'HC Air temperature [°C] min',
