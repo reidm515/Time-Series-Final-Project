@@ -2,7 +2,7 @@ import pandas as pd
 import numpy as np
 
 
-def insert_gaps_into_dataset(file_name, num_rows_to_sample):
+def insert_random_gaps_into_dataset(file_name, num_rows_to_sample):
 
     """
     This function inserts gaps into a weather dataset by randomly selecting and removing the values for a specified number of rows.
@@ -33,13 +33,11 @@ def insert_gaps_into_dataset(file_name, num_rows_to_sample):
     random_row_indices = np.random.permutation(num_rows_to_sample)
 
     # Select the rows based on the random indices and set their values to NaN
-    return df.iloc[random_row_indices, :] 
-    # = np.NaN
-
-    # return df
+    df.iloc[random_row_indices, :] = np.NaN
+    return df
 
 
 if __name__ == '__main__':
     file_name = input("Enter the name of the csv file: ")
     num_rows_to_sample = int(input("Enter the number of rows to sample: "))
-    df = insert_gaps_into_dataset(file_name, num_rows_to_sample)
+    df =  insert_random_gaps_into_dataset(file_name, num_rows_to_sample)
