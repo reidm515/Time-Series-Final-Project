@@ -1,10 +1,7 @@
 import pandas as pd
 import numpy as np
 
-
-def change_datetime_in_dataset(file_name, year=None, month=None, day=None):
-
-
+def change_datetime_in_dataset(file_name):
     # Check if the file exists and is a valid CSV file
     if not file_name.endswith('.csv'):
         raise ValueError("File must be a CSV file")
@@ -19,25 +16,32 @@ def change_datetime_in_dataset(file_name, year=None, month=None, day=None):
 
     # Convert the Datetime column to datetime type
     df['Datetime'] = pd.to_datetime(df['Datetime'])
-    # Null conversion for day, month & year
-    if year:
-        df.loc[df['Datetime'].dt.year == year, 'Datetime'] = np.nan
-    if month:
-        df.loc[df['Datetime'].dt.month == month, 'Datetime'] = np.nan
-    if day:
-        df.loc[df['Datetime'].dt.day == day, 'Datetime'] = np.nan
 
-    print(df.head())
+    # Loop to ask user for multiple selections
+    while True:
+        year = input("Enter the year (optional), or 'done' if finished: ")
+        if year.lower() == 'done':
+            break
+        year = int(year) if year.strip() else None
+
+        month = input("Enter the month (optional): ")
+        month = int(month) if month.strip() else None
+
+        day = input("Enter the day (optional): ")
+        day = int(day) if day.strip() else None
+
+        # Null conversion for day, month & year
+        if year:
+            df.loc[df['Datetime'].dt.year == year, 'Datetime'] = np.nan
+        if month:
+            df.loc[df['Datetime'].dt.month == month, 'Datetime'] = np.nan
+        if day:
+            df.loc[df['Datetime'].dt.day == day, 'Datetime'] = np.nan
+
+        print(df.head())
 
     return df
 
-
 if __name__ == '__main__':
     file_name = input("Enter the name of the csv file: ")
-    year = input("Enter the year (optional): ")
-    year = int(year) if year.strip() else None
-    month = input("Enter the month (optional): ")
-    month = int(month) if month.strip() else None
-    day = input("Enter the day (optional): ")
-    day = int(day) if day.strip() else None
-    df = change_datetime_in_dataset(file_name, year, month, day)
+    df = change_datetime_in_dataset(file_name)
