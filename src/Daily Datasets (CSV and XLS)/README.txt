@@ -46,4 +46,3 @@ data are from 2013 to 2021-12-31 (collected)
 	Precipitation [mm]	
 	Leaf Wetness [min]	
 	Battery voltage [mV]
-

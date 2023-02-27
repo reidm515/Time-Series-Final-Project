@@ -1,0 +1,30 @@
+HC temperatura air [�C] = 
+
+HC Air temperature [�C] = 
+
+Dew Point [�C] =  
+
+HC Relative humidity [%] / HC relativna vla�nost = 
+
+Precipitation [mm] = 
+
+Leaf Wetness [min] = 
+
+Battery voltage [mV] = 
+
+Precipitation [mm] = 
+
+
+HC Air temperature [�C],,,
+
+Dew Point [�C],,
+
+HC Relative humidity [%]
+
+Precipitation [mm] 
+
+Leaf Wetness [min] 
+
+Soil temperature [�C]
+
+Battery voltage [mV]
