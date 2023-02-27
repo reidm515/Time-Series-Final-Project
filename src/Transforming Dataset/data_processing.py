@@ -1,6 +1,7 @@
 import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
+from sklearn.preprocessing import StandardScaler, MinMaxScaler
 
 data = pd.read_csv("../Hourly Datasets (CSV)/")
 cleaned_dataset = []
@@ -60,3 +61,21 @@ def outlier_removal_IQR(data, column_name):
 
     cleaned_dataset = data[(data.height < lower_limit) & (data.height < upper_limit)]
     return cleaned_dataset
+
+def standardize_data(data, column):
+
+    # Function to standardize data points inside Meteorological Dataset using . 
+    # Use over Normalization when preserving outliers as normalization shrinks the variance/distribution. 
+
+    scaler = StandardScaler()
+    scaler.fit_transform(data[column])
+
+
+def normalize_data_min_max(data, column):
+
+    # Function to normalize data points inside Meteorological Dataset using Mix/Max Normalization. 
+    # Use over Standardization when outliers have been removed/not present in dataset.
+
+    scaler = MinMaxScaler()
+    scaler.fit_transform(data[column])
+    
