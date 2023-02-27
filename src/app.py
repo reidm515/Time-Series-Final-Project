@@ -1,5 +1,5 @@
 # Importing necessary modules
-from flask import Flask, render_template, request, flash, Response
+from flask import Flask, render_template, request, flash, Response, redirect
 import pandas as pd
 
 
@@ -8,7 +8,7 @@ app = Flask(__name__)
 
 @app.route('/', methods=['GET', 'POST'])
 def upload_csv():
-    if request.method == 'POST':
+    if request.method == 'POST': 
         # If POST request is made and Checking if file is in the request or not
         if 'file' not in request.files:
             flash('No file part')
