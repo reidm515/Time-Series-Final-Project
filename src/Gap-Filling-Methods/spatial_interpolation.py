@@ -3,6 +3,7 @@
 import numpy as np
 import pandas as pd
 from math import *
+from pykrige import Ordinary
 
 # These values are just from tutoral likely to need to be changed.
 nugget = 2.5
@@ -86,3 +87,4 @@ Var = data['Var'].to_numpy()
 
 test = interpolation(X, Y, Var)
 print(test)
+
