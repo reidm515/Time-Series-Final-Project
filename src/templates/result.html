@@ -1,10 +1,12 @@
 <!doctype html>
-<html>
+<html lang="en">
   <head>
-    <title>Random Sampling Results</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Gap Insertion Result</title>
   </head>
   <body>
-    <h1>Dataframe</h1>
-    {{ table|safe }}
+    <h1>Gap Insertion Result</h1>
+    <a href="data:text/csv;base64,{{ data }}" download="result.csv">Download Result</a>
   </body>
 </html>
