@@ -1,70 +1,59 @@
-import pandas as pd
+import random
 import numpy as np
+import pandas as pd
+import matplotlib.pyplot as plt
 
-def randomsampling(file_name, num_rows):
+#  Example Function Call:
+#  df_with_gaps = random_gaps(df_cut, gap_count, gap_size)
+def random_gaps(df, gap_count, gap_size):
+    """
+    Generate random gaps in a DataFrame by setting values to NaN.
 
+    Parameters:
+        df (pandas.DataFrame): The DataFrame to insert gaps into.
+        gap_count (int): The number of gaps to insert.
+        gap_size (int): The size of each gap.
 
-    #The function reads the dataset from a CSV file, generates random row indices, and sets the values for the selected rows to NaN.
+    Returns:
+        pandas.DataFrame: The DataFrame with gaps inserted.
+    """
+    # Generate gap_count random numbers in the range of 0 and len(dataset)
+    gap_indices = random.sample(range(len(df)), gap_count)
 
-    #Parameters:
-    #file_name (str): The name of the CSV file containing the weather dataset.
-    #num_rows (int): The number of rows to select and remove the values for.
+    for idx in gap_indices:
+        df['avg'][idx:idx+gap_size+1] = np.nan
 
+    # Print the list of random indices
+    print(f"Inserted {gap_count} of size {gap_size} gaps at: ")
+    for idx in gap_indices:
+        print(idx)
 
-    # This Checks if the file is a valid CSV file and actually exists
-    if not file_name.endswith('.csv'):
-        raise ValueError("The input file needs to be in CSV format.")
-    try:
-        with open("../Hourly Datasets (CSV)/" + file_name, 'r') as f:
-            pass
-    except FileNotFoundError:
-        raise FileNotFoundError("File not found")
-
-    # Read the CSV file into a pandas DataFrame
-    df = pd.read_csv("../Hourly Datasets (CSV)/" + file_name, sep=',', skiprows = 1, encoding='latin1')
-    print(df.head())
-
-    # Generate the random row indices
-    random_row_indices = np.random.permutation(num_rows)
-
-    # Select the rows based on the random indices and set their values to NaN
-    return df.iloc[random_row_indices, :]
-    # = np.NaN
-
-    # return df
-
-
-def spatially_temporally_correlated_gaps(file_name, num_gaps, gap_size):
-   #This function inserts spatially and temporally correlated gaps into our dataset by selecting a group of contiguous rows and setting their values to NaN.
-
-    # Check if the file exists and is a valid CSV file
-    if not file_name.endswith('.csv'):
-        raise ValueError("File must be a CSV file")
-    try:
-        with open("../Hourly Datasets (CSV)/" + file_name, 'r') as f:
-            pass
-    except FileNotFoundError:
-        raise FileNotFoundError("File not found")
-
-    #The function uses pandas read_csv function to read the CSV file into a pandas DataFrame.
-    #It skips the first row and sets the delimiter to a comma.
-    df = pd.read_csv("../Hourly Datasets (CSV)/" + file_name, sep=',', skiprows=1, encoding='latin1')
-
-    # The function converts the 'Datetime' column to a datetime type using pandas to_datetime function
-    df['Datetime'] = pd.to_datetime(df['Datetime'])
-
-    # The function generates a list of random starting indices for the gaps using numpy random choice function.
-    # It uses the number of gaps and gap size arguments to determine the number of rows in each gap.
-    starting_indices = np.random.choice(range(len(df) - gap_size), num_gaps, replace=False)
-
-    # Set the values for each group of contiguous rows to NaN
-    # The function sets the values of the selected rows for each gap to NaN using the pandas iloc function.
-    for start_idx in starting_indices:
-        end_idx = start_idx + gap_size - 1
-        df.iloc[start_idx:end_idx + 1, 1:] = np.nan
-
+    # Plot the graph with gaps inserted.
+    plt.plot(df['avg'])
     return df
 
+
+def annual_maintenance_gaps(df, maintenance_duration):
+    # Make a copy of the input DataFrame
+    df_copy = df.copy()
+
+    # Get the start and end dates for the DataFrame
+    start_of_year = df_copy.resample('D').first().iloc[0].name
+    end_of_year = df_copy.resample('D').last().iloc[-1].name
+    
+    # Number of observations per year
+    observations_per_year = df_copy.loc[(df_copy.index >= start_of_year) & (df_copy.index <= end_of_year)].shape[0]
+    
+    # Choose random date for maintenance
+    maintenance_interval = random.randint(1, observations_per_year)
+    
+    # Set the value at the maintenance interval to NaN
+    df_copy.iloc[maintenance_interval,:] = np.nan
+    
+    # Set values at yearly intervals to NaN
+    for i in range(maintenance_interval + observations_per_year, len(df_copy), observations_per_year):
+        df_copy.iloc[i, :] = np.nan    
+    return df_copy
 
 def TimeSeriesMissing(file_name):
     # Check if the file exists and is a valid CSV file
@@ -75,6 +64,7 @@ def TimeSeriesMissing(file_name):
             pass
     except FileNotFoundError:
         raise FileNotFoundError("File not found")
+    
     # Read the CSV file into a pandas DataFrame
     df = pd.read_csv("../Hourly Datasets (CSV)/" + file_name, sep=',', skiprows=1, encoding='latin1')
 
