@@ -1,0 +1,23 @@
+<!doctype html>
+<html>
+<head>
+    <title>Select Column</title>
+</head>
+<body>
+    <h1>Select Column for Prediction</h1>
+    <form action="" method="POST">
+        <label for="column">Choose a column:</label>
+        <select name="column" id="column">
+            {% for col in columns %}
+                <option value="{{ col }}">{{ col }}</option>
+            {% endfor %}
+        </select>
+        <label for="model">Choose a model:</label>
+        <select name="model" id="model">
+            <option value="lstm">LSTM</option>
+            <option value="xgboost">XGBoost</option>
+        </select>
+        <input type="submit" value="Submit">
+    </form>
+</body>
+</html>
