@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h2>{{ user.username }}'s Profile</h2>
+    <h3>Previously Uploaded Files</h3>
+    <ul>
+        {% for upload in user.uploads %}
+            <li>{{ upload.filename }} - {{ upload.uploaded_at.strftime('%Y-%m-%d %H:%M:%S') }}</li>
+        {% endfor %}
+    </ul>
+    <a href="{{ url_for('logout') }}">Logout</a>
+{% endblock %}
