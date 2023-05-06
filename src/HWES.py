@@ -71,3 +71,4 @@ def hwes_forecast(file, file_gaps, column_name):
     plt.close()
 
     return plot_hwes, plot2_hwes, plot3_hwes, rmse, mae
+
