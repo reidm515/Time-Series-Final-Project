@@ -1,12 +1,88 @@
+
 <!doctype html>
 <html>
 <head>
     <title>XGBoost Result</title>
+    <style>
+        /* Global Styles */
+        body {
+            background-color: #f9f9f9;
+            font-family: Arial, sans-serif;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            text-align: center;
+            margin-top: 2rem;
+            color: #333;
+        }
+
+        h3 {
+            font-size: 1.5rem;
+            text-align: center;
+            margin-top: 2rem;
+            color: #333;
+        }
+
+        p {
+            margin: 1rem 0;
+            text-align: center;
+        }
+
+        /* Content Styles */
+        .content {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 2rem;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .plot {
+            margin-top: 2rem;
+            text-align: center;
+            overflow: scroll;
+            max-width: 100%;
+            max-height: 600px;
+        }
+
+        .plot img {
+            max-width: 100%;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            cursor: zoom-in;
+        }
+
+        .plot img:hover {
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+        }
+    </style>
+    <script>
+        function zoomIn(img) {
+            img.style.width = (img.width * 2) + "px";
+            img.style.cursor = "zoom-out";
+            img.setAttribute("onclick", "zoomOut(this);");
+        }
+
+        function zoomOut(img) {
+            img.style.width = (img.width / 2) + "px";
+            img.style.cursor = "zoom-in";
+            img.setAttribute("onclick", "zoomIn(this);");
+        }
+    </script>
 </head>
 <body>
-    <h1>XGBoost Result</h1>
-    <img src="data:image/png;base64,{{ plot_url_xgboost }}" alt="XGBoost Plot">
-    <h3>Final Root Mean Squared Error Value</h3>
-    <p>{{ final_rmse }}</p>
+    <div class="content">
+        <h1>XGBoost Result</h1>
+        <div class="plot">
+            <img src="data:image/png;base64,{{ plot_url_xgboost }}" alt="XGBoost Plot" width="800" onclick="zoomIn(this);">
+        </div>
+        <h3>Final Root Mean Squared Error Value</h3>
+        <p>{{ final_rmse }}</p>
+    </div>
 </body>
 </html>
