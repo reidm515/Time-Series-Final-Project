@@ -1,0 +1,40 @@
+
+
+{% block content %}
+  <h2>Gap Insertion</h2>
+  <form action="" method="post">
+    <label for="method">Select gap insertion method:</label>
+    <select name="method" id="method">
+      <option value="random_gaps">Random Gaps</option>
+      <option value="annual_maintenance_gaps">Annual Maintenance Gaps</option>
+      <option value="weather_outage_gaps">Weather Outage Gaps</option>
+    </select>
+    <br>
+    <br>
+    <label for="gap_count">Gap Count (Random Gaps):</label>
+    <input type="number" id="gap_count" name="gap_count" value="0">
+    <br>
+    <br>
+    <label for="gap_size">Gap Size (Random Gaps):</label>
+    <input type="number" id="gap_size" name="gap_size" value="0">
+    <br>
+    <br>
+    <label for="maintenance_duration">Maintenance Duration (Annual Maintenance Gaps):</label>
+    <input type="number" id="maintenance_duration" name="maintenance_duration" value="0">
+    <br>
+    <br>
+    <label for="num_outage_days">Number of Outage Days (Weather Outage Gaps):</label>
+    <input type="number" id="num_outage_days" name="num_outage_days" value="0">
+    <br>
+    <br>
+    <label for="outage_duration">Outage Duration (Weather Outage Gaps):</label>
+    <input type="number" id="outage_duration" name="outage_duration" value="0">
+    <br>
+    <br>
+    <label for="col">Column (Weather Outage Gaps):</label>
+    <input type="text" id="col" name="col">
+    <br>
+    <br>
+    <input type="submit" value="Submit">
+  </form>
+{% endblock %}
