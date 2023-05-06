@@ -1,0 +1,91 @@
+<!doctype html>
+<html>
+<head>
+    <title>ARIMA Result</title>
+    <style>
+        /* Global Styles */
+        body {
+            background-color: #f9f9f9;
+            font-family: Arial, sans-serif;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            text-align: center;
+            margin-top: 2rem;
+            color: #333;
+        }
+
+        p {
+            margin: 1rem 0;
+        }
+
+        /* Content Styles */
+        .content {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 2rem;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .plot {
+            margin-top: 2rem;
+            text-align: center;
+            overflow: scroll;
+            max-width: 100%;
+            max-height: 600px;
+        }
+
+        .plot img {
+            max-width: 100%;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            cursor: zoom-in;
+        }
+
+        .plot img:hover {
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+        }
+    </style>
+    <script>
+        function zoomIn(img) {
+            img.style.width = (img.width * 2) + "px";
+            img.style.cursor = "zoom-out";
+            img.setAttribute("onclick", "zoomOut(this);");
+        }
+
+        function zoomOut(img) {
+            img.style.width = (img.width / 2) + "px";
+            img.style.cursor = "zoom-in";
+            img.setAttribute("onclick", "zoomIn(this);");
+        }
+    </script>
+</head>
+<body>
+    <div class="content">
+        <h1>ARIMA Result</h1>
+        <div class="rmse">
+            <h1>Root Mean Squared Error Values</h1>
+            <p>{{ arima_results1 }}</p>
+            <p>{{ arima_results2 }}</p>
+        </div>
+        <h1>Rolling Mean & Standard Deviation vs Original Plot </h1>
+        <div class="plot">
+            <img src="data:image/png;base64,{{ plot1 }}" alt="plot 1" width="800" onclick="zoomIn(this);">
+        </div>
+        <h1>Prediction vs Real Data</h1>
+        <div class="plot">
+            <img src="data:image/png;base64,{{ plot2 }}" alt="plot 2" width="800" onclick="zoomIn(this);">
+        </div>
+        <h1>Lag Plot</h1>
+        <div class="plot">
+            <img src="data:image/png;base64,{{ plot3 }}" alt="plot 3" width="800" onclick="zoomIn(this);">
+        </div>
+    </div>
+</body>
+</html>
