@@ -1,23 +1,124 @@
-<!doctype html>
+<!DOCTYPE html>
 <html>
 <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Select Column</title>
+    <style>
+        /* Global Styles */
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            font-size: 16px;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f9f9;
+        }
+
+        h1 {
+            text-align: center;
+            margin-top: 50px;
+            color: #333;
+        }
+
+        form {
+            max-width: 600px;
+            margin: 0 auto;
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        label {
+            display: block;
+            margin-bottom: 10px;
+            color: #666;
+        }
+
+        select, input[type="number"], input[type="text"] {
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            background-color: #f5f5f5;
+            margin-bottom: 20px;
+            width: 100%;
+        }
+
+        input[type="submit"] {
+            background-color: #333;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            margin-top: 20px;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #444;
+        }
+
+        /* Media queries */
+        @media screen and (max-width: 600px) {
+            form {
+                padding: 20px;
+            }
+        }
+    </style>
 </head>
 <body>
     <h1>Select Column for Prediction</h1>
     <form action="" method="POST">
         <label for="column">Choose a column:</label>
         <select name="column" id="column">
-            {% for col in columns %}
+            {% for col in columns[1:] %}
                 <option value="{{ col }}">{{ col }}</option>
-            {% endfor %}
+             {% endfor %}
         </select>
+
+        <!-- Add this block for the second column selection -->
+        <label for="column2">Choose a second column:</label>
+        <select name="column2" id="column2">
+            {% for col in columns[1:] %}
+                <option value="{{ col }}">{{ col }}</option>
+             {% endfor %}
+        </select>
+
         <label for="model">Choose a model:</label>
         <select name="model" id="model">
-            <option value="lstm">LSTM</option>
-            <option value="xgboost">XGBoost</option>
+            <option value="lstm" style="color: blue;">LSTM</option>
+            <option value="xgboost" style="color: green;">XGBoost</option>
+            <option value="arima" style="color: red;">ARIMA</option>
+            <option value="hwes" style="color: purple;">HWES</option>
+            <option value="sarimax" style="color: Orange;">sarimax</option>
         </select>
+
+
+        <label for="method">Select gap insertion method:</label>
+        <select name="method" id="method">
+            <option value="random_gaps">Random Gaps</option>
+            <option value="annual_maintenance_gaps">Annual Maintenance Gaps</option>
+            <option value="weather_outage_gaps">Weather Outage Gaps</option>
+        </select>
+        <label for="gap_count">Gap Count (Random Gaps):</label>
+        <input type="number" id="gap_count" name="gap_count" value="0">
+        <label for="gap_size">Gap Size (Random Gaps):</label>
+        <input type="number" id="gap_size" name="gap_size" value="0">
+        <label for="maintenance_duration">Maintenance Duration (Annual Maintenance Gaps):</label>
+                <input type="number" id="maintenance_duration" name="maintenance_duration" value="0">
+        <label for="num_outage_days">Number of Outage Days (Weather Outage Gaps):</label>
+        <input type="number" id="num_outage_days" name="num_outage_days" value="0">
+        <label for="outage_duration">Outage Duration (Weather Outage Gaps):</label>
+        <input type="number" id="outage_duration" name="outage_duration" value="0">
+        <label for="col">Column (Weather Outage Gaps):</label>
+        <input type="text" id="col" name="col">
         <input type="submit" value="Submit">
     </form>
 </body>
 </html>
+
