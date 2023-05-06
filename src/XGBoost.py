@@ -7,7 +7,7 @@ import base64
 import io
 plt.style.use('ggplot')
 
-def xgboost_forecast(file_path, column_name):
+def xgboost_forecast(file_path, file_gaps, column_name):
     df = pd.read_csv(file_path, sep=',', skiprows=1, encoding='latin1')
     df = df.dropna(axis='columns', how='all')
 
@@ -18,6 +18,10 @@ def xgboost_forecast(file_path, column_name):
 
     df = df.set_index('Datetime')
     df.index = pd.to_datetime(df.index)
+
+    df_gaps = pd.read_csv(file_gaps, sep=',', encoding='latin1')
+    df_gaps['Datetime'] = pd.to_datetime(df_gaps['Datetime'], format='%Y-%m-%d %H:%M:%S')
+    df_gaps = df_gaps.set_index('Datetime')
 
     #set datatime as index and converted it to datetime format
 
@@ -71,17 +75,17 @@ def xgboost_forecast(file_path, column_name):
 
     test['prediction'] = reg.predict(x_testing)
     df = df.merge(test[['prediction']], how='left', left_index=True, right_index=True)
-    ax = df[[column_name]].plot(figsize=(15, 5))
-    #merge prediction and plot the original vs model predicted data
-
+    ax = df_gaps[[column_name]].plot(figsize=(15, 5))
     df['prediction'].plot(ax=ax, style='.')
     plt.legend(['Original', 'Model'])
     ax.set_title('Original vs Model')
+    ax.set_title('Original vs Model')
     img = io.BytesIO()
     #package plot into png image to be sent to html
-    plt.savefig(img, format='png', bbox_inches='tight')
+    plt.savefig(img, format='png',dpi =300, bbox_inches='tight')
     img.seek(0)
     plot_xgb = base64.b64encode(img.getvalue()).decode('utf-8')
+    plt.close()
 
 
 
