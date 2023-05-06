@@ -6,7 +6,6 @@ from pandas import *
 import matplotlib.pyplot as plt
 import matplotlib
 import numpy as np
-
 matplotlib.use('agg')
   # Step 1: Read the Dataset
   # Set "Datetime" column to be parsed as a Date-Time object, not plain text.
@@ -46,6 +45,11 @@ def arima_forecast(file, file_gaps, column_name):
   plot1.seek(0)
   plot1 = base64.b64encode(plot1.getvalue()).decode('utf-8')
   plt.close()
+  
+
+
+
+
 
 
   def adcf_test(timeseries):
@@ -64,6 +68,11 @@ def arima_forecast(file, file_gaps, column_name):
   # evidenced by the test statistic being more negative than the
   # critical values and the p-value being very small.
 
+
+
+  #plt.show()
+
+  #df.dropna(inplace=True)
   from statsmodels.tsa.stattools import adfuller
   #dftest = adfuller(df)
   #print(dftest, dftest[1])
@@ -86,6 +95,7 @@ def arima_forecast(file, file_gaps, column_name):
   from statsmodels.graphics.tsaplots import plot_acf
   from statsmodels.graphics.tsaplots import plot_pacf
   
+  mx = 40
   #plot_acf(df[column_name])
   #plot_pacf(df[column_name])
   
@@ -106,11 +116,15 @@ def arima_forecast(file, file_gaps, column_name):
   
   model_arima = ARIMA(train, order=(3, 1, 1))
   model_arima_fit = model_arima.fit()
-    
+  
+  
+  
   start_date = train.index[0]
   end_date = train.index[-1]
   predictions = model_arima_fit.predict(start=start_date, end=end_date)
   
+
+
   train.head()
   
   from sklearn.metrics import mean_squared_error, mean_absolute_error
